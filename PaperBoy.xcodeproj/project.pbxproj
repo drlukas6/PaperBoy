@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1081B5212E177F0025A5C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1081B4212E177F0025A5C4 /* LoginView.swift */; };
+		2F24D602212E20F50088C4AC /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F24D601212E20F50088C4AC /* PureLayout.framework */; };
+		2F24D604212E21640088C4AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F24D603212E21640088C4AC /* LoginViewController.swift */; };
+		2F8BC0D2212E2008007F7D1E /* Pods_PaperBoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A119A5444518F9AFE0F3EC78 /* Pods_PaperBoy.framework */; };
+		2F8BC0D3212E2008007F7D1E /* Pods_PaperBoy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A119A5444518F9AFE0F3EC78 /* Pods_PaperBoy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FA7A33E212B11F900A3FE2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA7A33D212B11F900A3FE2E /* AppDelegate.swift */; };
-		2FA7A340212B11F900A3FE2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA7A33F212B11F900A3FE2E /* ViewController.swift */; };
-		2FA7A343212B11F900A3FE2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA7A341212B11F900A3FE2E /* Main.storyboard */; };
 		2FA7A346212B11F900A3FE2E /* PaperBoy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FA7A344212B11F900A3FE2E /* PaperBoy.xcdatamodeld */; };
 		2FA7A348212B11FB00A3FE2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FA7A347212B11FB00A3FE2E /* Assets.xcassets */; };
 		2FA7A34B212B11FB00A3FE2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA7A349212B11FB00A3FE2E /* LaunchScreen.storyboard */; };
 		2FA7A356212B11FB00A3FE2E /* PaperBoyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA7A355212B11FB00A3FE2E /* PaperBoyTests.swift */; };
+		2FF1EB95212EAB8600C88C64 /* TrapperKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF1EB93212EAB7D00C88C64 /* TrapperKeeper.framework */; };
+		2FF1EB96212EAB8600C88C64 /* TrapperKeeper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF1EB93212EAB7D00C88C64 /* TrapperKeeper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2FF1EB99212ED31800C88C64 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EB98212ED31800C88C64 /* UIColor.swift */; };
+		C8D5A8A6ED4C1EC60C31DB90 /* Pods_PaperBoyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DBC9282D40398BCC5AFA25 /* Pods_PaperBoyTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,11 +33,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2F1081B3212E160E0025A5C4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2F8BC0D3212E2008007F7D1E /* Pods_PaperBoy.framework in Embed Frameworks */,
+				2FF1EB96212EAB8600C88C64 /* TrapperKeeper.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2F1081B4212E177F0025A5C4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2F24D601212E20F50088C4AC /* PureLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PureLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F24D603212E21640088C4AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2FA7A33A212B11F900A3FE2E /* PaperBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaperBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA7A33D212B11F900A3FE2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2FA7A33F212B11F900A3FE2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2FA7A342212B11F900A3FE2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2FA7A345212B11F900A3FE2E /* PaperBoy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PaperBoy.xcdatamodel; sourceTree = "<group>"; };
 		2FA7A347212B11FB00A3FE2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FA7A34A212B11FB00A3FE2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +61,14 @@
 		2FA7A351212B11FB00A3FE2E /* PaperBoyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaperBoyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA7A355212B11FB00A3FE2E /* PaperBoyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperBoyTests.swift; sourceTree = "<group>"; };
 		2FA7A357212B11FB00A3FE2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FF1EB93212EAB7D00C88C64 /* TrapperKeeper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrapperKeeper.framework; sourceTree = "<group>"; };
+		2FF1EB98212ED31800C88C64 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		4F5B3479AF4102AE2E67A98E /* Pods-PaperBoyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperBoyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaperBoyTests/Pods-PaperBoyTests.release.xcconfig"; sourceTree = "<group>"; };
+		7281744D232DBFDEA89932EE /* Pods-PaperBoyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperBoyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaperBoyTests/Pods-PaperBoyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		889D59CE97B847335FF8AB7D /* Pods-PaperBoy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperBoy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaperBoy/Pods-PaperBoy.debug.xcconfig"; sourceTree = "<group>"; };
+		A119A5444518F9AFE0F3EC78 /* Pods_PaperBoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaperBoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1DBC9282D40398BCC5AFA25 /* Pods_PaperBoyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaperBoyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECF501011D5E67C431150E15 /* Pods-PaperBoy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperBoy.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaperBoy/Pods-PaperBoy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FF1EB95212EAB8600C88C64 /* TrapperKeeper.framework in Frameworks */,
+				2F24D602212E20F50088C4AC /* PureLayout.framework in Frameworks */,
+				2F8BC0D2212E2008007F7D1E /* Pods_PaperBoy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +86,43 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8D5A8A6ED4C1EC60C31DB90 /* Pods_PaperBoyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29FE523F9F9F0C229AF4D910 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				889D59CE97B847335FF8AB7D /* Pods-PaperBoy.debug.xcconfig */,
+				ECF501011D5E67C431150E15 /* Pods-PaperBoy.release.xcconfig */,
+				7281744D232DBFDEA89932EE /* Pods-PaperBoyTests.debug.xcconfig */,
+				4F5B3479AF4102AE2E67A98E /* Pods-PaperBoyTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2F1081B0212E15F90025A5C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FF1EB93212EAB7D00C88C64 /* TrapperKeeper.framework */,
+				2F24D601212E20F50088C4AC /* PureLayout.framework */,
+				A119A5444518F9AFE0F3EC78 /* Pods_PaperBoy.framework */,
+				D1DBC9282D40398BCC5AFA25 /* Pods_PaperBoyTests.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		2FA7A331212B11F900A3FE2E = {
 			isa = PBXGroup;
 			children = (
+				2F1081B0212E15F90025A5C4 /* Frameworks */,
 				2FA7A33C212B11F900A3FE2E /* PaperBoy */,
 				2FA7A354212B11FB00A3FE2E /* PaperBoyTests */,
 				2FA7A33B212B11F900A3FE2E /* Products */,
+				29FE523F9F9F0C229AF4D910 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,9 +138,12 @@
 		2FA7A33C212B11F900A3FE2E /* PaperBoy */ = {
 			isa = PBXGroup;
 			children = (
+				2FF1EB97212ED30200C88C64 /* Extensions */,
+				2FA7A363212B125C00A3FE2E /* Controllers */,
+				2FA7A362212B124800A3FE2E /* ViewModels */,
+				2FA7A361212B124800A3FE2E /* Views */,
+				2FA7A360212B124600A3FE2E /* Models */,
 				2FA7A33D212B11F900A3FE2E /* AppDelegate.swift */,
-				2FA7A33F212B11F900A3FE2E /* ViewController.swift */,
-				2FA7A341212B11F900A3FE2E /* Main.storyboard */,
 				2FA7A347212B11FB00A3FE2E /* Assets.xcassets */,
 				2FA7A349212B11FB00A3FE2E /* LaunchScreen.storyboard */,
 				2FA7A34C212B11FB00A3FE2E /* Info.plist */,
@@ -99,6 +161,44 @@
 			path = PaperBoyTests;
 			sourceTree = "<group>";
 		};
+		2FA7A360212B124600A3FE2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2FA7A361212B124800A3FE2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F1081B4212E177F0025A5C4 /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2FA7A362212B124800A3FE2E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2FA7A363212B125C00A3FE2E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2F24D603212E21640088C4AC /* LoginViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2FF1EB97212ED30200C88C64 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2FF1EB98212ED31800C88C64 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +206,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FA7A35A212B11FB00A3FE2E /* Build configuration list for PBXNativeTarget "PaperBoy" */;
 			buildPhases = (
+				B816DA333C23B04F103935F6 /* [CP] Check Pods Manifest.lock */,
 				2FA7A336212B11F900A3FE2E /* Sources */,
 				2FA7A337212B11F900A3FE2E /* Frameworks */,
 				2FA7A338212B11F900A3FE2E /* Resources */,
+				2F1081B3212E160E0025A5C4 /* Embed Frameworks */,
+				3DA06E7194A82541D9E2F2B4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +226,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FA7A35D212B11FB00A3FE2E /* Build configuration list for PBXNativeTarget "PaperBoyTests" */;
 			buildPhases = (
+				7E44E5A9C1491208867F87CE /* [CP] Check Pods Manifest.lock */,
 				2FA7A34D212B11FB00A3FE2E /* Sources */,
 				2FA7A34E212B11FB00A3FE2E /* Frameworks */,
 				2FA7A34F212B11FB00A3FE2E /* Resources */,
@@ -182,7 +286,6 @@
 			files = (
 				2FA7A34B212B11FB00A3FE2E /* LaunchScreen.storyboard in Resources */,
 				2FA7A348212B11FB00A3FE2E /* Assets.xcassets in Resources */,
-				2FA7A343212B11F900A3FE2E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,14 +298,85 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3DA06E7194A82541D9E2F2B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PaperBoy/Pods-PaperBoy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PaperBoy/Pods-PaperBoy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E44E5A9C1491208867F87CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PaperBoyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B816DA333C23B04F103935F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PaperBoy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2FA7A336212B11F900A3FE2E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FA7A340212B11F900A3FE2E /* ViewController.swift in Sources */,
+				2F24D604212E21640088C4AC /* LoginViewController.swift in Sources */,
+				2F1081B5212E177F0025A5C4 /* LoginView.swift in Sources */,
 				2FA7A33E212B11F900A3FE2E /* AppDelegate.swift in Sources */,
 				2FA7A346212B11F900A3FE2E /* PaperBoy.xcdatamodeld in Sources */,
+				2FF1EB99212ED31800C88C64 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,14 +399,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2FA7A341212B11F900A3FE2E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2FA7A342212B11F900A3FE2E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2FA7A349212B11FB00A3FE2E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -362,11 +528,18 @@
 		};
 		2FA7A35B212B11FB00A3FE2E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 889D59CE97B847335FF8AB7D /* Pods-PaperBoy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22AZG63582;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = PaperBoy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,11 +553,18 @@
 		};
 		2FA7A35C212B11FB00A3FE2E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECF501011D5E67C431150E15 /* Pods-PaperBoy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22AZG63582;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = PaperBoy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,6 +578,7 @@
 		};
 		2FA7A35E212B11FB00A3FE2E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7281744D232DBFDEA89932EE /* Pods-PaperBoyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -419,6 +600,7 @@
 		};
 		2FA7A35F212B11FB00A3FE2E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F5B3479AF4102AE2E67A98E /* Pods-PaperBoyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

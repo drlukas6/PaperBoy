@@ -1,0 +1,11 @@
+framework module TrapperKeeper {
+  umbrella header "TrapperKeeper.h"
+
+  export *
+  module * { export * }
+}
+
+module TrapperKeeper.Swift {
+    header "TrapperKeeper-Swift.h"
+    requires objc
+}

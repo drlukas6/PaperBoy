@@ -1,0 +1,121 @@
+//
+//  LoginView.swift
+//  PaperBoy
+//
+//  Created by Lukas Sestic on 23/08/2018.
+//  Copyright © 2018 Lukas Sestic. All rights reserved.
+//
+
+import Foundation
+import UIKit
+import PureLayout
+
+
+class LoginView: UIView {
+    var shouldUpdateConstraints = true
+    let screenSize = UIScreen.main.bounds
+    var fieldsStackView: UIStackView!
+    var usernameTextField: UITextField!
+    var passwordTextField: UITextField!
+    var loginButton: UIButton!
+    var registerButton: UIButton!
+    var copyrightLabel: UILabel!
+    var backgroundImage: UIImageView!
+    var containerView: UIView!
+    
+    
+    private struct ViewProperties {
+        static let cornerRadius: CGFloat = 15.0
+        static let edgeInset: CGFloat = 8.0
+        static let edgeMarginInset: CGFloat = 16.0
+        static let threeQuarters: CGFloat = 0.75
+        static let newspaperBackground = "newspaper"
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initializeSubviews()
+        addSubviews()
+        setupSubviews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initializeSubviews()
+        addSubviews()
+        setupSubviews()
+    }
+    
+    private func initializeSubviews() {
+        fieldsStackView = UIStackView()
+        usernameTextField = UITextField()
+        passwordTextField = UITextField()
+        loginButton = UIButton(type: .system)
+        registerButton = UIButton(type: .system)
+        copyrightLabel = UILabel()
+        backgroundImage = UIImageView(image: UIImage(named: ViewProperties.newspaperBackground))
+        containerView = UIView()
+    }
+    
+    private func addSubviews() {
+        fieldsStackView.addArrangedSubview(usernameTextField)
+        fieldsStackView.addArrangedSubview(passwordTextField)
+        fieldsStackView.addArrangedSubview(loginButton)
+        fieldsStackView.addArrangedSubview(registerButton)
+        self.addSubview(backgroundImage)
+        self.addSubview(containerView)
+        containerView.addSubview(fieldsStackView)
+        self.addSubview(copyrightLabel)
+    }
+    
+    private func setupSubviews() {
+        self.backgroundColor = .black
+        
+        backgroundImage.autoPinEdgesToSuperviewEdges()
+        backgroundImage.contentMode = .scaleAspectFill
+        backgroundImage.layer.opacity = 0.6
+        
+        copyrightLabel.text = "Copyright © 2018 Lukas Sestic. All rights reserved."
+        copyrightLabel.font = UIFont(name: copyrightLabel.font.fontName, size: 12)
+        copyrightLabel.textColor = .lightGray
+        copyrightLabel.textAlignment = .center
+        copyrightLabel.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: ViewProperties.edgeInset, left: ViewProperties.edgeInset, bottom: ViewProperties.edgeMarginInset, right: ViewProperties.edgeInset), excludingEdge: .top)
+        
+        usernameTextField.placeholder = "Username"
+        usernameTextField.font = UIFont(name: (usernameTextField.font?.fontName)!, size: 18)
+        usernameTextField.textContentType = .username
+        
+        passwordTextField.placeholder = "******"
+        passwordTextField.font = UIFont(name: (passwordTextField.font?.fontName)!, size: 18)
+        passwordTextField.textContentType = .password
+        passwordTextField.isSecureTextEntry = true
+
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.autoSetDimension(.height, toSize: 40.0)
+        loginButton.layer.cornerRadius = 20.0
+        loginButton.backgroundColor = .radiantRed
+        loginButton.tintColor = .white
+        
+        registerButton.setTitle("Register", for: .normal)
+        registerButton.titleLabel?.font = UIFont(name: (registerButton.titleLabel?.font.fontName)!, size: 12)
+        registerButton.autoSetDimension(.height, toSize: 12)
+        registerButton.tintColor = .lightGray
+        
+        
+        containerView.backgroundColor = .white
+        containerView.layer.cornerRadius = 15.0
+        containerView.layer.shadowColor = UIColor.lightGray.cgColor
+        containerView.layer.shadowOpacity = 0.8
+        containerView.layer.shadowOffset = .zero
+        containerView.layer.shadowRadius = 10.0
+        
+        containerView.autoCenterInSuperview()
+        containerView.autoMatch(.width, to: .width, of: self, withMultiplier: ViewProperties.threeQuarters)
+        
+        fieldsStackView.axis = .vertical
+        fieldsStackView.distribution = .equalSpacing
+        fieldsStackView.spacing = 15.0
+        fieldsStackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: ViewProperties.edgeInset, left: ViewProperties.edgeInset, bottom: ViewProperties.edgeInset, right: ViewProperties.edgeInset))
+    }
+    
+}
