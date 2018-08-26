@@ -10,6 +10,10 @@
 		2F1081B5212E177F0025A5C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1081B4212E177F0025A5C4 /* LoginView.swift */; };
 		2F24D602212E20F50088C4AC /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F24D601212E20F50088C4AC /* PureLayout.framework */; };
 		2F24D604212E21640088C4AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F24D603212E21640088C4AC /* LoginViewController.swift */; };
+		2F3BEA642132AAFF0054500F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3BEA632132AAFF0054500F /* RegisterViewController.swift */; };
+		2F73084E213197CA0021CC13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73084D213197CA0021CC13 /* User.swift */; };
+		2F73085021319CFA0021CC13 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73084F21319CFA0021CC13 /* RegisterView.swift */; };
+		2F7308532131A2FB0021CC13 /* ViewProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7308522131A2FB0021CC13 /* ViewProperties.swift */; };
 		2F8BC0D2212E2008007F7D1E /* Pods_PaperBoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A119A5444518F9AFE0F3EC78 /* Pods_PaperBoy.framework */; };
 		2F8BC0D3212E2008007F7D1E /* Pods_PaperBoy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A119A5444518F9AFE0F3EC78 /* Pods_PaperBoy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FA7A33E212B11F900A3FE2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA7A33D212B11F900A3FE2E /* AppDelegate.swift */; };
@@ -20,6 +24,10 @@
 		2FF1EB95212EAB8600C88C64 /* TrapperKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF1EB93212EAB7D00C88C64 /* TrapperKeeper.framework */; };
 		2FF1EB96212EAB8600C88C64 /* TrapperKeeper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF1EB93212EAB7D00C88C64 /* TrapperKeeper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FF1EB99212ED31800C88C64 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EB98212ED31800C88C64 /* UIColor.swift */; };
+		2FF1EB9B212EE1A700C88C64 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EB9A212EE1A700C88C64 /* String.swift */; };
+		2FF1EB9F212EE2A300C88C64 /* ObserverBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EB9E212EE2A300C88C64 /* ObserverBox.swift */; };
+		2FF1EBA1212EF2AE00C88C64 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EBA0212EF2AE00C88C64 /* UserViewModel.swift */; };
+		2FF1EBA8212EF52E00C88C64 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EBA7212EF52E00C88C64 /* PersistenceService.swift */; };
 		C8D5A8A6ED4C1EC60C31DB90 /* Pods_PaperBoyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DBC9282D40398BCC5AFA25 /* Pods_PaperBoyTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +60,10 @@
 		2F1081B4212E177F0025A5C4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2F24D601212E20F50088C4AC /* PureLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PureLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F24D603212E21640088C4AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2F3BEA632132AAFF0054500F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		2F73084D213197CA0021CC13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2F73084F21319CFA0021CC13 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		2F7308522131A2FB0021CC13 /* ViewProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProperties.swift; sourceTree = "<group>"; };
 		2FA7A33A212B11F900A3FE2E /* PaperBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaperBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA7A33D212B11F900A3FE2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FA7A345212B11F900A3FE2E /* PaperBoy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PaperBoy.xcdatamodel; sourceTree = "<group>"; };
@@ -63,6 +75,11 @@
 		2FA7A357212B11FB00A3FE2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FF1EB93212EAB7D00C88C64 /* TrapperKeeper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrapperKeeper.framework; sourceTree = "<group>"; };
 		2FF1EB98212ED31800C88C64 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		2FF1EB9A212EE1A700C88C64 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2FF1EB9D212EE1F300C88C64 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		2FF1EB9E212EE2A300C88C64 /* ObserverBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverBox.swift; sourceTree = "<group>"; };
+		2FF1EBA0212EF2AE00C88C64 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		2FF1EBA7212EF52E00C88C64 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		4F5B3479AF4102AE2E67A98E /* Pods-PaperBoyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperBoyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaperBoyTests/Pods-PaperBoyTests.release.xcconfig"; sourceTree = "<group>"; };
 		7281744D232DBFDEA89932EE /* Pods-PaperBoyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperBoyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaperBoyTests/Pods-PaperBoyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		889D59CE97B847335FF8AB7D /* Pods-PaperBoy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperBoy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaperBoy/Pods-PaperBoy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +132,14 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		2F7308512131A2E60021CC13 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2F7308522131A2FB0021CC13 /* ViewProperties.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		2FA7A331212B11F900A3FE2E = {
 			isa = PBXGroup;
 			children = (
@@ -138,16 +163,16 @@
 		2FA7A33C212B11F900A3FE2E /* PaperBoy */ = {
 			isa = PBXGroup;
 			children = (
+				2FF1EB9C212EE1DD00C88C64 /* RelatedFiles */,
+				2FF1EBA6212EF4C900C88C64 /* Services */,
+				2F7308512131A2E60021CC13 /* Shared */,
 				2FF1EB97212ED30200C88C64 /* Extensions */,
 				2FA7A363212B125C00A3FE2E /* Controllers */,
 				2FA7A362212B124800A3FE2E /* ViewModels */,
 				2FA7A361212B124800A3FE2E /* Views */,
 				2FA7A360212B124600A3FE2E /* Models */,
-				2FA7A33D212B11F900A3FE2E /* AppDelegate.swift */,
 				2FA7A347212B11FB00A3FE2E /* Assets.xcassets */,
-				2FA7A349212B11FB00A3FE2E /* LaunchScreen.storyboard */,
 				2FA7A34C212B11FB00A3FE2E /* Info.plist */,
-				2FA7A344212B11F900A3FE2E /* PaperBoy.xcdatamodeld */,
 			);
 			path = PaperBoy;
 			sourceTree = "<group>";
@@ -164,6 +189,8 @@
 		2FA7A360212B124600A3FE2E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2FF1EB9E212EE2A300C88C64 /* ObserverBox.swift */,
+				2F73084D213197CA0021CC13 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				2F1081B4212E177F0025A5C4 /* LoginView.swift */,
+				2F73084F21319CFA0021CC13 /* RegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +207,7 @@
 		2FA7A362212B124800A3FE2E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				2FF1EBA0212EF2AE00C88C64 /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -187,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				2F24D603212E21640088C4AC /* LoginViewController.swift */,
+				2F3BEA632132AAFF0054500F /* RegisterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,8 +225,28 @@
 			isa = PBXGroup;
 			children = (
 				2FF1EB98212ED31800C88C64 /* UIColor.swift */,
+				2FF1EB9A212EE1A700C88C64 /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2FF1EB9C212EE1DD00C88C64 /* RelatedFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2FF1EB9D212EE1F300C88C64 /* BridgingHeader.h */,
+				2FA7A33D212B11F900A3FE2E /* AppDelegate.swift */,
+				2FA7A349212B11FB00A3FE2E /* LaunchScreen.storyboard */,
+				2FA7A344212B11F900A3FE2E /* PaperBoy.xcdatamodeld */,
+			);
+			path = RelatedFiles;
+			sourceTree = "<group>";
+		};
+		2FF1EBA6212EF4C900C88C64 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2FF1EBA7212EF52E00C88C64 /* PersistenceService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,10 +422,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F73085021319CFA0021CC13 /* RegisterView.swift in Sources */,
+				2FF1EB9B212EE1A700C88C64 /* String.swift in Sources */,
+				2FF1EBA1212EF2AE00C88C64 /* UserViewModel.swift in Sources */,
+				2F7308532131A2FB0021CC13 /* ViewProperties.swift in Sources */,
 				2F24D604212E21640088C4AC /* LoginViewController.swift in Sources */,
+				2FF1EBA8212EF52E00C88C64 /* PersistenceService.swift in Sources */,
+				2FF1EB9F212EE2A300C88C64 /* ObserverBox.swift in Sources */,
 				2F1081B5212E177F0025A5C4 /* LoginView.swift in Sources */,
 				2FA7A33E212B11F900A3FE2E /* AppDelegate.swift in Sources */,
 				2FA7A346212B11F900A3FE2E /* PaperBoy.xcdatamodeld in Sources */,
+				2F3BEA642132AAFF0054500F /* RegisterViewController.swift in Sources */,
+				2F73084E213197CA0021CC13 /* User.swift in Sources */,
 				2FF1EB99212ED31800C88C64 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,6 +604,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.LukasSestic.PaperBoy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = PaperBoy/RelatedFiles/BridgingHeader.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -571,6 +630,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.LukasSestic.PaperBoy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = PaperBoy/RelatedFiles/BridgingHeader.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

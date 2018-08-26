@@ -20,23 +20,14 @@ class LoginView: UIView {
     var loginButton: UIButton!
     var registerButton: UIButton!
     var copyrightLabel: UILabel!
-    var backgroundImage: UIImageView!
     var containerView: UIView!
-    
-    
-    private struct ViewProperties {
-        static let cornerRadius: CGFloat = 15.0
-        static let edgeInset: CGFloat = 8.0
-        static let edgeMarginInset: CGFloat = 16.0
-        static let threeQuarters: CGFloat = 0.75
-        static let newspaperBackground = "newspaper"
-    }
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         initializeSubviews()
         addSubviews()
         setupSubviews()
+        animateBackground()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,7 +35,9 @@ class LoginView: UIView {
         initializeSubviews()
         addSubviews()
         setupSubviews()
+        animateBackground()
     }
+
     
     private func initializeSubviews() {
         fieldsStackView = UIStackView()
@@ -53,7 +46,6 @@ class LoginView: UIView {
         loginButton = UIButton(type: .system)
         registerButton = UIButton(type: .system)
         copyrightLabel = UILabel()
-        backgroundImage = UIImageView(image: UIImage(named: ViewProperties.newspaperBackground))
         containerView = UIView()
     }
     
@@ -62,7 +54,6 @@ class LoginView: UIView {
         fieldsStackView.addArrangedSubview(passwordTextField)
         fieldsStackView.addArrangedSubview(loginButton)
         fieldsStackView.addArrangedSubview(registerButton)
-        self.addSubview(backgroundImage)
         self.addSubview(containerView)
         containerView.addSubview(fieldsStackView)
         self.addSubview(copyrightLabel)
@@ -70,10 +61,6 @@ class LoginView: UIView {
     
     private func setupSubviews() {
         self.backgroundColor = .black
-        
-        backgroundImage.autoPinEdgesToSuperviewEdges()
-        backgroundImage.contentMode = .scaleAspectFill
-        backgroundImage.layer.opacity = 0.6
         
         copyrightLabel.text = "Copyright © 2018 Lukas Sestic. All rights reserved."
         copyrightLabel.font = UIFont(name: copyrightLabel.font.fontName, size: 12)
@@ -93,8 +80,9 @@ class LoginView: UIView {
         loginButton.setTitle("Login", for: .normal)
         loginButton.autoSetDimension(.height, toSize: 40.0)
         loginButton.layer.cornerRadius = 20.0
-        loginButton.backgroundColor = .radiantRed
+        loginButton.backgroundColor = .neonPink
         loginButton.tintColor = .white
+        loginButton.isEnabled = false
         
         registerButton.setTitle("Register", for: .normal)
         registerButton.titleLabel?.font = UIFont(name: (registerButton.titleLabel?.font.fontName)!, size: 12)
@@ -115,7 +103,13 @@ class LoginView: UIView {
         fieldsStackView.axis = .vertical
         fieldsStackView.distribution = .equalSpacing
         fieldsStackView.spacing = 15.0
-        fieldsStackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: ViewProperties.edgeInset, left: ViewProperties.edgeInset, bottom: ViewProperties.edgeInset, right: ViewProperties.edgeInset))
+        fieldsStackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: ViewProperties.edgeMarginInset, left: ViewProperties.edgeInset, bottom: ViewProperties.edgeMarginInset, right: ViewProperties.edgeInset))
     }
     
+    private func animateBackground() {
+        UIView.animate(withDuration: 7.0, delay: 0, options: [.repeat, .autoreverse, .allowUserInteraction], animations: {
+            self.backgroundColor = .neonBlue
+        })
+    }
 }
+
