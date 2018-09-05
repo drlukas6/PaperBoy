@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class UserViewModel {
     private let minUsernameLength = 6
@@ -34,5 +35,25 @@ extension UserViewModel {
     func validateLengths(_ username: String, _ password: String) -> Bool {
         if username.count >= minUsernameLength && password.count >= minPasswordLength { return true}
         return false
+    }
+    
+    func saveUser() -> Bool {
+        let sameUsernamePredicate = NSPredicate(format: "\(CoreDataPropertyKeys.username) = %@", username.value)
+        
+//        Cannot save a user with an already existing username
+        if PersistenceService.getDataFromEntity(from: CoreDataPropertyKeys.usersEntity, with: sameUsernamePredicate)?.count != 0 {
+            return false
+        }
+        else {
+            let newUser = Users(context: PersistenceService.context)
+            newUser.username = username.value
+            newUser.password = password.value.sha256Data() ?? NSData()
+            newUser.articlesRead = 0
+            newUser.articlesSaved = 0
+            
+            PersistenceService.saveContext()
+            return true
+        }
+        
     }
 }

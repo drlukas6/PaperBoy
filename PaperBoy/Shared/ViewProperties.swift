@@ -14,5 +14,17 @@ struct ViewProperties {
     static let edgeInset: CGFloat = 8.0
     static let edgeMarginInset: CGFloat = 16.0
     static let threeQuarters: CGFloat = 0.75
-    static let newspaperBackground = "newspaper"
+    static let logo: String = "logo"
+    
+    struct images {
+        static let save: String = "save"
+        static let saved: String = "saved"
+        static let profile: String = "profile"
+        static let headlines: String = "headlines"
+        static let remove: String = "remove"
+        static let background: String = "background"
+        static let happy: String = "happy"
+        static let logout: String = "logout"
+        static let progressGradient: String = "progressGradient"
+    }
 }

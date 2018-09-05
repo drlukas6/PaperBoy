@@ -13,7 +13,6 @@ import PureLayout
 
 class LoginView: UIView {
     var shouldUpdateConstraints = true
-    let screenSize = UIScreen.main.bounds
     var fieldsStackView: UIStackView!
     var usernameTextField: UITextField!
     var passwordTextField: UITextField!
@@ -21,6 +20,7 @@ class LoginView: UIView {
     var registerButton: UIButton!
     var copyrightLabel: UILabel!
     var containerView: UIView!
+    var logoImage: UIImageView!
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,9 +47,11 @@ class LoginView: UIView {
         registerButton = UIButton(type: .system)
         copyrightLabel = UILabel()
         containerView = UIView()
+        logoImage = UIImageView(image: UIImage(named: ViewProperties.logo))
     }
     
     private func addSubviews() {
+        self.addSubview(logoImage)
         fieldsStackView.addArrangedSubview(usernameTextField)
         fieldsStackView.addArrangedSubview(passwordTextField)
         fieldsStackView.addArrangedSubview(loginButton)
@@ -68,14 +70,17 @@ class LoginView: UIView {
         copyrightLabel.textAlignment = .center
         copyrightLabel.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: ViewProperties.edgeInset, left: ViewProperties.edgeInset, bottom: ViewProperties.edgeMarginInset, right: ViewProperties.edgeInset), excludingEdge: .top)
         
-        usernameTextField.placeholder = "Username"
+        usernameTextField.placeholder = "username"
         usernameTextField.font = UIFont(name: (usernameTextField.font?.fontName)!, size: 18)
         usernameTextField.textContentType = .username
+        usernameTextField.autocorrectionType = .no
+        usernameTextField.autocapitalizationType = .none
         
-        passwordTextField.placeholder = "******"
+        passwordTextField.placeholder = "********"
         passwordTextField.font = UIFont(name: (passwordTextField.font?.fontName)!, size: 18)
         passwordTextField.textContentType = .password
         passwordTextField.isSecureTextEntry = true
+
 
         loginButton.setTitle("Login", for: .normal)
         loginButton.autoSetDimension(.height, toSize: 40.0)
@@ -92,11 +97,6 @@ class LoginView: UIView {
         
         containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 15.0
-        containerView.layer.shadowColor = UIColor.lightGray.cgColor
-        containerView.layer.shadowOpacity = 0.8
-        containerView.layer.shadowOffset = .zero
-        containerView.layer.shadowRadius = 10.0
-        
         containerView.autoCenterInSuperview()
         containerView.autoMatch(.width, to: .width, of: self, withMultiplier: ViewProperties.threeQuarters)
         
@@ -104,6 +104,12 @@ class LoginView: UIView {
         fieldsStackView.distribution = .equalSpacing
         fieldsStackView.spacing = 15.0
         fieldsStackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: ViewProperties.edgeMarginInset, left: ViewProperties.edgeInset, bottom: ViewProperties.edgeMarginInset, right: ViewProperties.edgeInset))
+        
+        logoImage.contentMode = .scaleAspectFit
+        logoImage.autoPinEdge(toSuperviewMargin: .top)
+        logoImage.autoPinEdge(toSuperviewMargin: .leading)
+        logoImage.autoPinEdge(toSuperviewMargin: .trailing)
+        logoImage.autoMatch(.height, to: .height, of: self, withMultiplier: 0.25)
     }
     
     private func animateBackground() {

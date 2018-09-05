@@ -16,8 +16,8 @@ extension String {
         return ""
     }
     
-    func sha256Data() -> Data? {
-        return Data(base64Encoded: sha256())
+    func sha256Data() -> NSData? {
+        return NSData(base64Encoded: self.sha256(), options: [])
     }
     
     private func digest(input : NSData) -> NSData {

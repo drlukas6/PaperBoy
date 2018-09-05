@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
         loginView.autoPinEdgesToSuperviewEdges()
         setupDelegates()
         setupBinding()
-        setupNavigation()
+        setupActions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,13 +59,49 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private func setupNavigation() {
+    private func setupActions() {
         loginView.registerButton.addTarget(self, action: #selector(registerUser), for: .touchUpInside)
+        loginView.loginButton.addTarget(self, action: #selector(loginUser), for: .touchUpInside)
     }
     
     @objc
     private func registerUser() {
         navigationController?.pushViewController(RegisterViewController(), animated: true)
+    }
+    
+    @objc
+    private func loginUser() {
+        let usernamePredicate = NSPredicate(format: "username = %@", userViewModel.username.value)
+        if let user = PersistenceService.getDataFromEntity(from: CoreDataPropertyKeys.usersEntity, with: usernamePredicate)?.first as? Users, let password = user.password, let enteredPassword = userViewModel.password.value.sha256Data() {
+            if password == enteredPassword {
+                print("Login successfull")
+                createTabBarController(for: user)
+            }
+        }
+    }
+    
+    private func createTabBarController(for user: Users) {
+        let tabBarVC = UITabBarController()
+        tabBarVC.tabBar.barStyle = .black
+        tabBarVC.tabBar.tintColor = .neonPink
+        
+        let headlinesVC = HeadlinesViewController()
+        headlinesVC.tabBarItem.image = UIImage(named: ViewProperties.images.headlines)
+        headlinesVC.tabBarItem.title = "Headlines"
+        headlinesVC.currentUser = user
+        
+        let savedVC = SavedViewController()
+        savedVC.tabBarItem.image = UIImage(named: ViewProperties.images.saved)
+        savedVC.tabBarItem.title = "Saved"
+        savedVC.currentUser = user
+        
+        let profileVC = ProfileViewController()
+        profileVC.tabBarItem.image = UIImage(named: ViewProperties.images.profile)
+        profileVC.tabBarItem.title = "Profile"
+        
+        tabBarVC.setViewControllers([headlinesVC, savedVC, profileVC], animated: true)
+        tabBarVC.selectedViewController = profileVC
+        self.present(tabBarVC, animated: true, completion: nil)
     }
 }
 

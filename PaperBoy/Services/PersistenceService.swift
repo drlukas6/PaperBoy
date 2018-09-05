@@ -60,4 +60,36 @@ class PersistenceService {
             }
         }
     }
+    
+    // MARK: - Core Data Loading support
+    
+    static func getDataCountFromEntity(from entity: String) -> Int {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            let data = result as! [NSManagedObject]
+            return data.count
+        }
+        catch {
+            print("Getting data count failed!")
+            return -1
+        }
+    }
+    
+    static func getDataFromEntity(from entity: String, with predicate: NSPredicate? = nil) -> [NSManagedObject]? {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        if let predicate = predicate {
+            request.predicate = predicate
+        }
+        do {
+            let result = try context.fetch(request)
+            let data = result as! [NSManagedObject]
+            return data
+        }
+        catch {
+            print("Getting data count failed!")
+            return nil
+        }
+    }
 }

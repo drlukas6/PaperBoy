@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationVC.navigationBar.tintColor = .neonPink
         navigationVC.navigationBar.barStyle = .black
         window?.rootViewController = navigationVC
+        
+//        let profileVC = ProfileViewController()
+//        window?.rootViewController = profileVC
         window?.makeKeyAndVisible()
         return true
     }
