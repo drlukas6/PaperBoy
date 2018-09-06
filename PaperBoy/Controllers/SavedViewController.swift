@@ -12,24 +12,32 @@ import SafariServices
 class SavedViewController: UIViewController {
 
     private var savedView: SavedView!
-    private let dataSource = SavedArticlesDataSource()
-    var currentUser: Users!
+    private var dataSource: SavedArticlesDataSource!
     
-    lazy var savedViewModel: SavedViewModel = {
-        return SavedViewModel(dataSource: dataSource, currentUser: currentUser)
-    }()
+//    lazy var savedViewModel: SavedViewModel = {
+//        return SavedViewModel(dataSource: dataSource, currentUser: currentUser)
+//    }()
+    private var savedViewModel: SavedViewModel!
+    
+    convenience init(dataSource: SavedArticlesDataSource, currentUser: Users) {
+        self.init()
+        self.dataSource = dataSource
+        self.savedViewModel = SavedViewModel(dataSource: dataSource, currentUser: currentUser)
+        savedView = SavedView(frame: .zero)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "Saved"
         
-        savedView = SavedView(frame: .zero)
         view.addSubview(savedView)
         savedView.autoPinEdgesToSuperviewEdges()
         
         setupTableView()
         setupBinding()
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,5 +101,10 @@ extension SavedViewController: UITableViewDelegate {
         deleteAction.image = UIImage(named: ViewProperties.images.remove)
         return deleteAction
     }
-    
+}
+
+extension SavedViewController: UserUpdater {
+    func updateUserInfo() {
+        self.savedViewModel.fetchArticles()
+    }
 }

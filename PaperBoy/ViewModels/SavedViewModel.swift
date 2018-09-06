@@ -32,5 +32,10 @@ extension SavedViewModel {
     func getSavedArticle(at index: IndexPath) -> SavedArticles? {
         return dataSource?.data.value[index.section]
     }
+    
+    func updateArticlesSaved() {
+        currentUser.articlesSaved = currentUser.articlesSaved - 1
+        PersistenceService.saveContext()
+    }
 }
 

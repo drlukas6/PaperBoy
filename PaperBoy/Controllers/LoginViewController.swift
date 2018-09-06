@@ -85,22 +85,26 @@ class LoginViewController: UIViewController {
         tabBarVC.tabBar.barStyle = .black
         tabBarVC.tabBar.tintColor = .neonPink
         
-        let headlinesVC = HeadlinesViewController()
-        headlinesVC.tabBarItem.image = UIImage(named: ViewProperties.images.headlines)
-        headlinesVC.tabBarItem.title = "Headlines"
-        headlinesVC.currentUser = user
-        
-        let savedVC = SavedViewController()
-        savedVC.tabBarItem.image = UIImage(named: ViewProperties.images.saved)
-        savedVC.tabBarItem.title = "Saved"
-        savedVC.currentUser = user
-        
-        let profileVC = ProfileViewController()
+        let profileVC = ProfileViewController(for: user)
         profileVC.tabBarItem.image = UIImage(named: ViewProperties.images.profile)
         profileVC.tabBarItem.title = "Profile"
         
+        let savedVC = SavedViewController(dataSource: SavedArticlesDataSource(), currentUser: user)
+        savedVC.tabBarItem.image = UIImage(named: ViewProperties.images.saved)
+        savedVC.tabBarItem.title = "Saved"
+        
+        let headlinesVC = HeadlinesViewController(dataSource: ArticlesDataSource(), currentUser: user, viewControllersToUpdate: [profileVC, savedVC])
+        headlinesVC.tabBarItem.image = UIImage(named: ViewProperties.images.headlines)
+        headlinesVC.tabBarItem.title = "Headlines"
+//        headlinesVC.currentUser = user
+//        headlinesVC.updater = profileVC
+        
+        
+        
+        
+        
         tabBarVC.setViewControllers([headlinesVC, savedVC, profileVC], animated: true)
-        tabBarVC.selectedViewController = profileVC
+//        tabBarVC.selectedViewController = profileVC
         self.present(tabBarVC, animated: true, completion: nil)
     }
 }

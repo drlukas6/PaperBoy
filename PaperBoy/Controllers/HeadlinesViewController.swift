@@ -14,19 +14,23 @@ import Kingfisher
 class HeadlinesViewController: UIViewController {
 
     private var headlinesView: HeadlinesView!
-    private let dataSource = ArticlesDataSource()
-    var currentUser: Users!
+    private var dataSource: ArticlesDataSource!
+    private var headlinessViewModel: HeadlinesViewModel!
     
-    lazy var headlinessViewModel: HeadlinesViewModel = {
-        return HeadlinesViewModel(dataSource: dataSource, currentUser: currentUser)
-    }()
+    convenience init(dataSource: ArticlesDataSource, currentUser: Users, viewControllersToUpdate: [UserUpdater]?) {
+        self.init()
+        self.dataSource = dataSource
+        self.headlinessViewModel = HeadlinesViewModel(dataSource: dataSource, currentUser: currentUser, updaters: viewControllersToUpdate)
+        headlinesView = HeadlinesView(frame: .zero)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Headlines"
         
-        headlinesView = HeadlinesView(frame: .zero)
+        
         view.addSubview(headlinesView)
         headlinesView.autoPinEdgesToSuperviewEdges()
         
@@ -44,9 +48,12 @@ class HeadlinesViewController: UIViewController {
     }
     
     private func setupBinding() {
-        dataSource.data.bind { (articles) in
+        headlinessViewModel.dataSource?.data.bind(listener: { (articles) in
             self.headlinesView.headlinesTableView.reloadData()
-        }
+        })
+//        dataSource.data.bind { (articles) in
+//            self.headlinesView.headlinesTableView.reloadData()
+//        }
     }
     
     private func setupActions() {
@@ -130,3 +137,6 @@ extension HeadlinesViewController: UITableViewDelegate {
         return saveAction
     }
 }
+
+
+

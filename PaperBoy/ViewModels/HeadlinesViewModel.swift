@@ -9,13 +9,19 @@
 import Foundation
 import TrapperKeeper
 
+protocol UserUpdater {
+    func updateUserInfo()
+}
+
 class HeadlinesViewModel {
     weak var dataSource: GenericDataSource<Article>?
     private var currentUser: Users
+    private var userUpdaters: [UserUpdater]?
     
-    init(dataSource: GenericDataSource<Article>?, currentUser: Users) {
+    init(dataSource: GenericDataSource<Article>?, currentUser: Users, updaters: [UserUpdater]?) {
         self.dataSource = dataSource
         self.currentUser = currentUser
+        self.userUpdaters = updaters
     }
 }
 
@@ -42,10 +48,16 @@ extension HeadlinesViewModel {
     func updateArticlesRead() {
         currentUser.articlesRead = currentUser.articlesRead + 1
         PersistenceService.saveContext()
+        if let userUpdaters = userUpdaters {
+            userUpdaters.forEach { $0.updateUserInfo() }
+        }
     }
     
     func updateArticlesSaved() {
         currentUser.articlesSaved = currentUser.articlesSaved + 1
         PersistenceService.saveContext()
+        if let userUpdaters = userUpdaters {
+            userUpdaters.forEach { $0.updateUserInfo() }
+        }
     }
 }
