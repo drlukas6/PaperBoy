@@ -26,5 +26,8 @@ struct ViewProperties {
         static let happy: String = "happy"
         static let logout: String = "logout"
         static let progressGradient: String = "progressGradient"
+        static let tutorial1: String = "tutorial1"
+        static let tutorial2: String = "tutorial2"
+        static let tutorial3: String = "tutorial3"
     }
 }

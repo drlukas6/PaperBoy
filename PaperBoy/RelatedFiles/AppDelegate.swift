@@ -17,13 +17,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationVC = UINavigationController(rootViewController: LoginViewController())
-        navigationVC.navigationBar.tintColor = .neonPink
-        navigationVC.navigationBar.barStyle = .black
-        window?.rootViewController = navigationVC
+        let activeUsername = UserDefaults.standard.string(forKey: UserDefaultsPropertyKeys.username) ?? ""
+        let usernamePredicate = NSPredicate(format: "username = %@", activeUsername)
+        if activeUsername != "", let user = PersistenceService.getDataFromEntity(from: CoreDataPropertyKeys.usersEntity, with: usernamePredicate)?.first as? Users {
+            let tabBarVC = UITabBarController()
+            tabBarVC.tabBar.barStyle = .black
+            tabBarVC.tabBar.tintColor = .neonPink
+
+            let profileVC = ProfileViewController(for: user)
+            profileVC.tabBarItem.image = UIImage(named: ViewProperties.images.profile)
+            profileVC.tabBarItem.title = "Profile"
+
+            let savedVC = SavedViewController(dataSource: SavedArticlesDataSource(), currentUser: user)
+            savedVC.tabBarItem.image = UIImage(named: ViewProperties.images.saved)
+            savedVC.tabBarItem.title = "Saved"
+
+            let headlinesVC = HeadlinesViewController(dataSource: ArticlesDataSource(), currentUser: user, viewControllersToUpdate: [profileVC, savedVC])
+            headlinesVC.tabBarItem.image = UIImage(named: ViewProperties.images.headlines)
+            headlinesVC.tabBarItem.title = "Headlines"
+
+            tabBarVC.setViewControllers([headlinesVC, savedVC, profileVC], animated: true)
+
+            window?.rootViewController = tabBarVC
+        }
+        else {
+            let navigationVC = UINavigationController(rootViewController: LoginViewController())
+            navigationVC.navigationBar.tintColor = .neonPink
+            navigationVC.navigationBar.barStyle = .black
+            window?.rootViewController = navigationVC
+        }
         
-//        let profileVC = ProfileViewController()
-//        window?.rootViewController = profileVC
         window?.makeKeyAndVisible()
         return true
     }

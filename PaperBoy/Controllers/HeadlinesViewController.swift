@@ -15,12 +15,13 @@ class HeadlinesViewController: UIViewController {
 
     private var headlinesView: HeadlinesView!
     private var dataSource: ArticlesDataSource!
-    private var headlinessViewModel: HeadlinesViewModel!
+    private var headlinesViewModel: HeadlinesViewModel!
+    private var activeCategory: String = NewsApiPropertyKeys.categories.general
     
     convenience init(dataSource: ArticlesDataSource, currentUser: Users, viewControllersToUpdate: [UserUpdater]?) {
         self.init()
         self.dataSource = dataSource
-        self.headlinessViewModel = HeadlinesViewModel(dataSource: dataSource, currentUser: currentUser, updaters: viewControllersToUpdate)
+        self.headlinesViewModel = HeadlinesViewModel(dataSource: dataSource, currentUser: currentUser, updaters: viewControllersToUpdate)
         headlinesView = HeadlinesView(frame: .zero)
     }
     
@@ -29,7 +30,7 @@ class HeadlinesViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Headlines"
-        
+        self.hideKeyboardWhenTappedAround()
         
         view.addSubview(headlinesView)
         headlinesView.autoPinEdgesToSuperviewEdges()
@@ -38,22 +39,20 @@ class HeadlinesViewController: UIViewController {
         setupBinding()
         setupActions()
         
-        headlinessViewModel.fetchArticles(category: NewsApiPropertyKeys.categories.general)
+        headlinesViewModel.fetchArticles(prompt: activeCategory, searchType: .top)
     }
     
     private func setupTableview() {
         headlinesView.headlinesTableView.delegate = self
         headlinesView.headlinesTableView.dataSource = dataSource
         headlinesView.headlinesTableView.register(ArticleCell.self, forCellReuseIdentifier: "ArticleCell")
+        headlinesView.searchBar.delegate = self
     }
     
     private func setupBinding() {
-        headlinessViewModel.dataSource?.data.bind(listener: { (articles) in
+        headlinesViewModel.dataSource?.data.bind(listener: { (articles) in
             self.headlinesView.headlinesTableView.reloadData()
         })
-//        dataSource.data.bind { (articles) in
-//            self.headlinesView.headlinesTableView.reloadData()
-//        }
     }
     
     private func setupActions() {
@@ -68,9 +67,20 @@ class HeadlinesViewController: UIViewController {
     
     @objc
     private func grabCategory(_ sender: UIButton) {
-        headlinessViewModel.fetchArticles(category: sender.titleLabel?.text?.lowercased() ?? NewsApiPropertyKeys.categories.general)
+        activeCategory = sender.titleLabel?.text?.lowercased() ?? NewsApiPropertyKeys.categories.general
+        headlinesViewModel.fetchArticles(prompt: activeCategory, searchType: .top)
     }
-
+    
+    @objc
+    private func searchArticles() {
+        guard let text = headlinesView.searchBar.text else { return }
+        if text == "" {
+            headlinesViewModel.fetchArticles(prompt: activeCategory, searchType: .top)
+        }
+        else {
+            headlinesViewModel.fetchArticles(prompt: text, searchType: .search)
+        }
+    }
 }
 
 extension HeadlinesViewController: UITableViewDelegate {
@@ -80,9 +90,9 @@ extension HeadlinesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         headlinesView.headlinesTableView.deselectRow(at: indexPath, animated: false)
-        let url = headlinessViewModel.dataSource?.data.value[indexPath.section].url
+        let url = headlinesViewModel.dataSource?.data.value[indexPath.section].url
         if let url = url {
-            headlinessViewModel.updateArticlesRead()
+            headlinesViewModel.updateArticlesRead()
             let safariVC = SFSafariViewController(url: url)
             self.present(safariVC, animated: true, completion: nil)
         }
@@ -106,7 +116,7 @@ extension HeadlinesViewController: UITableViewDelegate {
     
     private func saveArticle(at indexPath: IndexPath) -> UIContextualAction {
         let saveAction = UIContextualAction(style: .normal, title: "Save") { (action, view, handler) in
-            if let selectedArticle = self.headlinessViewModel.dataSource?.data.value[indexPath.section] {
+            if let selectedArticle = self.headlinesViewModel.dataSource?.data.value[indexPath.section] {
                 let articleToSave = SavedArticles(context: PersistenceService.context)
                 articleToSave.articleDescription = selectedArticle.description
                 articleToSave.author = selectedArticle.author
@@ -122,10 +132,10 @@ extension HeadlinesViewController: UITableViewDelegate {
                         else {
                             articleToSave.image = image?.pngData() as NSData?
                         }
-                        self.headlinessViewModel.saveArticle(for: articleToSave)
+                        self.headlinesViewModel.saveArticle(for: articleToSave)
                     })
                 }
-                self.headlinessViewModel.updateArticlesSaved()
+                self.headlinesViewModel.updateArticlesSaved()
                 handler(true)
             }
             else {
@@ -137,6 +147,14 @@ extension HeadlinesViewController: UITableViewDelegate {
         return saveAction
     }
 }
+
+extension HeadlinesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(searchArticles), object: nil)
+        self.perform(#selector(searchArticles), with: nil, afterDelay: 0.3)
+    }
+}
+
 
 
 

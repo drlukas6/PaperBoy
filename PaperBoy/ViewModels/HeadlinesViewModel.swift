@@ -27,8 +27,23 @@ class HeadlinesViewModel {
 
 
 extension HeadlinesViewModel {
-    func fetchArticles(category: String) {
-        TrapperKeeper().requestData(url: NewsApiPropertyKeys.highlightsEndPoint, method: .GET, headers: NewsApiPropertyKeys.apiHeader, parameters: ["country" : "us", "category" : category]) { (response, error) in
+    enum searchType {
+        case search
+        case top
+    }
+    
+    func fetchArticles(prompt: String, searchType: searchType) {
+        var parameters: [String : String] = [:]
+        var url = NewsApiPropertyKeys.headlinesEndPoint
+        switch searchType {
+        case .search:
+            parameters["q"] = prompt
+            url = NewsApiPropertyKeys.everythingEndPoint
+        case .top:
+            parameters["category"] = prompt
+            parameters["country"] = "us"
+        }
+        TrapperKeeper().requestData(url: url, method: .GET, headers: NewsApiPropertyKeys.apiHeader, parameters: parameters) { (response, error) in
             if error == nil, let articles = try? JSONDecoder().decode(Articles.self, from: response) {
                 self.dataSource?.data.value = articles.articles
             }
@@ -37,6 +52,7 @@ extension HeadlinesViewModel {
             }
         }
     }
+
     
     func saveArticle(for article: SavedArticles) {
         self.currentUser.addToSavedArticles(article)

@@ -2,7 +2,7 @@
 //  Users+CoreDataProperties.swift
 //  PaperBoy
 //
-//  Created by Lukas Sestic on 05/09/2018.
+//  Created by Lukas Sestic on 06/09/2018.
 //  Copyright © 2018 Lukas Sestic. All rights reserved.
 //
 //
@@ -17,10 +17,11 @@ extension Users {
         return NSFetchRequest<Users>(entityName: "Users")
     }
 
-    @NSManaged public var password: NSData?
-    @NSManaged public var username: String?
     @NSManaged public var articlesRead: Int32
     @NSManaged public var articlesSaved: Int32
+    @NSManaged public var password: NSData?
+    @NSManaged public var username: String?
+    @NSManaged public var isNew: Bool
     @NSManaged public var savedArticles: NSSet?
 
 }

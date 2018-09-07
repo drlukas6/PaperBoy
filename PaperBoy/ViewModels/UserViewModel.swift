@@ -40,8 +40,7 @@ extension UserViewModel {
     func saveUser() -> Bool {
         let sameUsernamePredicate = NSPredicate(format: "\(CoreDataPropertyKeys.username) = %@", username.value)
         
-//        Cannot save a user with an already existing username
-        if PersistenceService.getDataFromEntity(from: CoreDataPropertyKeys.usersEntity, with: sameUsernamePredicate)?.count != 0 {
+        if (username.value.count < minUsernameLength || password.value.count < minPasswordLength) || PersistenceService.getDataFromEntity(from: CoreDataPropertyKeys.usersEntity, with: sameUsernamePredicate)?.count != 0 {
             return false
         }
         else {
@@ -50,10 +49,11 @@ extension UserViewModel {
             newUser.password = password.value.sha256Data() ?? NSData()
             newUser.articlesRead = 0
             newUser.articlesSaved = 0
+            newUser.isNew = true
             
             PersistenceService.saveContext()
             return true
         }
-        
     }
 }
+

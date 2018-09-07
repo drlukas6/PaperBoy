@@ -72,15 +72,35 @@ class LoginViewController: UIViewController {
     @objc
     private func loginUser() {
         let usernamePredicate = NSPredicate(format: "username = %@", userViewModel.username.value)
-        if let user = PersistenceService.getDataFromEntity(from: CoreDataPropertyKeys.usersEntity, with: usernamePredicate)?.first as? Users, let password = user.password, let enteredPassword = userViewModel.password.value.sha256Data() {
-            if password == enteredPassword {
+        if let user = PersistenceService.getDataFromEntity(from: CoreDataPropertyKeys.usersEntity, with: usernamePredicate)?.first as? Users, let password = user.password, let enteredPassword = userViewModel.password.value.sha256Data(), password == enteredPassword {
                 print("Login successfull")
                 createTabBarController(for: user)
-            }
+        }
+        else {
+            loginView.loginButton.shake(duration: 0.5, values: [-12.0, 12.0, -12.0, 12.0, -6.0, 6.0, -3.0, 3.0, 0.0])
         }
     }
     
     private func createTabBarController(for user: Users) {
+        guard let username = user.username else { return }
+        
+        UserDefaults.standard.set(username, forKey: UserDefaultsPropertyKeys.username)
+        
+        switch user.isNew {
+        case true:
+            displayTutorial(for: user)
+        case false:
+            dispayHeadlines(for: user)
+        }
+    }
+    
+    private func displayTutorial(for currentUser: Users) {
+
+        let mainTutorialVC = MainTutorialUViewController(currentUser: currentUser)
+        self.present(mainTutorialVC, animated: true, completion: nil)
+    }
+    
+    private func dispayHeadlines(for user: Users) {
         let tabBarVC = UITabBarController()
         tabBarVC.tabBar.barStyle = .black
         tabBarVC.tabBar.tintColor = .neonPink
@@ -96,15 +116,8 @@ class LoginViewController: UIViewController {
         let headlinesVC = HeadlinesViewController(dataSource: ArticlesDataSource(), currentUser: user, viewControllersToUpdate: [profileVC, savedVC])
         headlinesVC.tabBarItem.image = UIImage(named: ViewProperties.images.headlines)
         headlinesVC.tabBarItem.title = "Headlines"
-//        headlinesVC.currentUser = user
-//        headlinesVC.updater = profileVC
-        
-        
-        
-        
         
         tabBarVC.setViewControllers([headlinesVC, savedVC, profileVC], animated: true)
-//        tabBarVC.selectedViewController = profileVC
         self.present(tabBarVC, animated: true, completion: nil)
     }
 }
@@ -117,6 +130,17 @@ extension LoginViewController: UITextFieldDelegate {
         }
         else if textField == loginView.passwordTextField {
             userViewModel.updatePassword(newString)
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == loginView.usernameTextField {
+            loginView.passwordTextField.becomeFirstResponder()
+        }
+        else {
+            loginUser()
+            resignFirstResponder()
         }
         return true
     }

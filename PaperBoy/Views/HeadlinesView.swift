@@ -13,6 +13,7 @@ import PureLayout
 class HeadlinesView: UIView {
     var backgroundImage: UIImageView!
     var headlinesTableView: UITableView!
+    var searchBar: UISearchBar!
     var slider: UIScrollView!
     var categories: UIStackView!
     var general: UIButton!
@@ -39,6 +40,7 @@ class HeadlinesView: UIView {
     
     private func initializeSubviews() {
         backgroundImage = UIImageView(image: UIImage(named: ViewProperties.images.background))
+        searchBar = UISearchBar()
         headlinesTableView = UITableView()
         slider = UIScrollView()
         categories = UIStackView()
@@ -53,6 +55,7 @@ class HeadlinesView: UIView {
     
     private func addSubviews() {
         self.addSubview(backgroundImage)
+        self.addSubview(searchBar)
         self.addSubview(slider)
         slider.addSubview(categories)
         categories.addArrangedSubview(general)
@@ -68,7 +71,15 @@ class HeadlinesView: UIView {
     private func setupSubviews() {
         backgroundImage.autoPinEdgesToSuperviewEdges()
         
-        slider.autoPinEdge(toSuperviewSafeArea: .top)
+        searchBar.autoPinEdge(toSuperviewSafeArea: .top)
+        searchBar.autoPinEdge(toSuperviewEdge: .leading)
+        searchBar.autoPinEdge(toSuperviewEdge: .trailing)
+        searchBar.barTintColor = .black
+        searchBar.barStyle = .black
+        searchBar.keyboardAppearance = .dark
+        searchBar.placeholder = "Search Headlines"
+        
+        slider.autoPinEdge(.top, to: .bottom, of: searchBar)
         slider.autoPinEdge(toSuperviewEdge: .leading)
         slider.autoPinEdge(toSuperviewEdge: .trailing)
         slider.autoSetDimension(.height, toSize: 40.0)

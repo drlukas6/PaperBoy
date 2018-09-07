@@ -14,9 +14,6 @@ class ProfileView: UIView {
     private struct ProfileProperties {
         static let imageSize: CGFloat = 100.0
         static let profileInset: CGFloat = 36.0
-        static let sunsetEnd: UIColor = UIColor(red:0.32, green:0.12, blue:0.40, alpha:1.0)
-        static let sunsetMiddle: UIColor = UIColor(red:0.74, green:0.07, blue:0.39, alpha:1.0)
-        static let sunsetStart: UIColor = UIColor(red:0.90, green:0.62, blue:0.38, alpha:1.0)
     }
     
     var backgroundImage: UIImageView!
@@ -94,13 +91,13 @@ class ProfileView: UIView {
         profileNameLabel.autoAlignAxis(.horizontal, toSameAxisOf: happyImage)
         profileNameLabel.autoPinEdge(.leading, to: .trailing, of: happyImage, withOffset: ViewProperties.edgeMarginInset)
         profileNameLabel.font = UIFont.boldSystemFont(ofSize: 36.0)
-        profileNameLabel.textColor = ProfileProperties.sunsetStart
+        profileNameLabel.textColor = .sunsetStart
         profileNameLabel.text = "Lukassss"
         
         profileLvlLabel.autoPinEdge(.top, to: .bottom, of: profileNameLabel, withOffset: 2.0)
         profileLvlLabel.autoPinEdge(.leading, to: .trailing, of: happyImage, withOffset: ViewProperties.edgeMarginInset)
         profileLvlLabel.font = UIFont.boldSystemFont(ofSize: 14.0)
-        profileLvlLabel.textColor = ProfileProperties.sunsetStart
+        profileLvlLabel.textColor = .sunsetStart
         profileLvlLabel.text = "LEVEL: 8"
         
         progressContainer.autoPinEdge(.top, to: .bottom, of: happyImage, withOffset: 46.0)
@@ -112,13 +109,13 @@ class ProfileView: UIView {
         lvlStartLabel.autoPinEdge(.leading, to: .leading, of: progressContainer)
         lvlStartLabel.autoAlignAxis(.horizontal, toSameAxisOf: progressContainer)
         lvlStartLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
-        lvlStartLabel.textColor = ProfileProperties.sunsetStart
+        lvlStartLabel.textColor = .sunsetStart
         lvlStartLabel.text = "LVL. 8"
         
         lvlNextLabel.autoPinEdge(.trailing, to: .trailing, of: progressContainer)
         lvlNextLabel.autoAlignAxis(.horizontal, toSameAxisOf: progressContainer)
         lvlNextLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
-        lvlNextLabel.textColor = ProfileProperties.sunsetStart
+        lvlNextLabel.textColor = .sunsetStart
         lvlNextLabel.text = "LVL. 9"
         
         progressBar.autoPinEdge(.leading, to: .trailing, of: lvlStartLabel, withOffset: ViewProperties.edgeInset)
@@ -131,32 +128,32 @@ class ProfileView: UIView {
         progressBar.clipsToBounds = true
         progressBar.layer.sublayers![1].cornerRadius = 10
         progressBar.subviews[1].clipsToBounds = true
-        progressBar.tintColor = ProfileProperties.sunsetStart
+        progressBar.tintColor = .sunsetStart
         progressBar.progressImage = UIImage(named: ViewProperties.images.progressGradient)
 
         articlesRead.autoPinEdge(.top, to: .bottom, of: progressContainer, withOffset: 45.0)
         articlesRead.autoPinEdge(.leading, to: .leading, of: self, withOffset: ProfileProperties.profileInset)
         articlesRead.font = UIFont.boldSystemFont(ofSize: 20.0)
-        articlesRead.textColor = ProfileProperties.sunsetEnd
+        articlesRead.textColor = .sunsetEnd
         articlesRead.text = "ARTICLES READ:"
 
         numberOfRead.autoAlignAxis(.horizontal, toSameAxisOf: articlesRead)
         numberOfRead.autoPinEdge(.trailing, to: .trailing, of: self, withOffset: -ProfileProperties.profileInset)
         numberOfRead.font = UIFont.boldSystemFont(ofSize: 48.0)
-        numberOfRead.textColor = ProfileProperties.sunsetEnd
+        numberOfRead.textColor = .sunsetEnd
         numberOfRead.text = "80"
         numberOfRead.textAlignment = .right
         
         articlesSaved.autoPinEdge(.top, to: .bottom, of: numberOfRead, withOffset: 45.0)
         articlesSaved.autoPinEdge(.leading, to: .leading, of: self, withOffset: ProfileProperties.profileInset)
         articlesSaved.font = UIFont.boldSystemFont(ofSize: 20.0)
-        articlesSaved.textColor = ProfileProperties.sunsetMiddle
+        articlesSaved.textColor = .sunsetMiddle
         articlesSaved.text = "ARTICLES SAVED:"
         
         numberOfSaved.autoAlignAxis(.horizontal, toSameAxisOf: articlesSaved)
         numberOfSaved.autoPinEdge(.trailing, to: .trailing, of: self, withOffset: -ProfileProperties.profileInset)
         numberOfSaved.font = UIFont.boldSystemFont(ofSize: 48.0)
-        numberOfSaved.textColor = ProfileProperties.sunsetMiddle
+        numberOfSaved.textColor = .sunsetMiddle
         numberOfSaved.text = "24"
         numberOfSaved.textAlignment = .right
         
@@ -166,6 +163,6 @@ class ProfileView: UIView {
         logoutButton.layer.cornerRadius = 45.0
         logoutButton.setBackgroundImage(UIImage(named: ViewProperties.images.logout), for: .normal)
         logoutButton.tintColor = .clear
-        logoutButton.backgroundColor = ProfileProperties.sunsetStart
+        logoutButton.backgroundColor = .sunsetStart
     }
 }

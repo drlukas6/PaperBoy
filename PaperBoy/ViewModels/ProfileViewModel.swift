@@ -31,14 +31,18 @@ extension ProfileViewModel {
     }
     
     
-    /// Calculates users level using the paraboloid equation because it depends on the number of saved and read articles. Curvature towards saved articles is more level as it is less important than the number of read articles.
+    /// Calculates users level using the paraboloid function because it depends on the number of saved and read articles. Curvature towards saved articles is more level as it is less important than the number of read articles.
     ///
     /// - Returns: Users current level
     func calculateLevel() -> Double {
         // 36 = 6 ^ 2 => 6 is curvature
-        let curvatureTowardReadArticles = Double(currentUser.articlesRead^2) / 36
+        let curvatureTowardReadArticles = (pow(Double(currentUser.articlesRead), 2) / 36)
         // 64 = 8 ^ 2 => 8 is curvature
-        let curvatureTowardSavedArticles = Double(currentUser.articlesRead^2) / 64
+        let curvatureTowardSavedArticles = (pow(Double(currentUser.articlesSaved), 2) / 64)
         return curvatureTowardReadArticles + curvatureTowardSavedArticles
+    }
+    
+    func logoutUser() {
+        UserDefaults.standard.removeObject(forKey: UserDefaultsPropertyKeys.username)
     }
 }

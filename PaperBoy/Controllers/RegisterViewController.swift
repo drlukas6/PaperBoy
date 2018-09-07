@@ -60,6 +60,9 @@ class RegisterViewController: UIViewController {
         if userViewModel.saveUser() {
             navigationController?.popViewController(animated: true)
         }
+        else {
+            registerView.registerButton.shake(duration: 0.5, values: [-12.0, 12.0, -12.0, 12.0, -6.0, 6.0, -3.0, 3.0, 0.0])
+        }
     }
 }
 
@@ -71,6 +74,16 @@ extension RegisterViewController: UITextFieldDelegate {
         }
         else if textField == registerView.passwordTextField {
             userViewModel.updatePassword(newString)
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == registerView.usernameTextField {
+            registerView.passwordTextField.becomeFirstResponder()
+        }
+        else {
+            completeRegistration()
         }
         return true
     }

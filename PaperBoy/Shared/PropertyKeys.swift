@@ -14,10 +14,15 @@ struct CoreDataPropertyKeys {
     static let usersEntity = "Users"
 }
 
+struct UserDefaultsPropertyKeys {
+    static let username = "username"
+}
+
 struct NewsApiPropertyKeys {
     static let apiHeader = ["X-Api-Key" : "d7eb258764e640159b084021d4a1d16c"]
-    static let highlightsEndPoint = URL(string: "https://newsapi.org/v2/top-headlines")!
+    static let headlinesEndPoint = URL(string: "https://newsapi.org/v2/top-headlines")!
     static let sourcesEndPoint = URL(string: "https://newsapi.org/v2/sources")!
+    static let everythingEndPoint = URL(string: "https://newsapi.org/v2/everything")!
     
     struct categories {
         static let general = "general"
