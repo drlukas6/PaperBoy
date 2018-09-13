@@ -13,10 +13,6 @@ class SavedViewController: UIViewController {
 
     private var savedView: SavedView!
     private var dataSource: SavedArticlesDataSource!
-    
-//    lazy var savedViewModel: SavedViewModel = {
-//        return SavedViewModel(dataSource: dataSource, currentUser: currentUser)
-//    }()
     private var savedViewModel: SavedViewModel!
     
     convenience init(dataSource: SavedArticlesDataSource, currentUser: Users) {
@@ -51,8 +47,8 @@ class SavedViewController: UIViewController {
     }
     
     private func setupBinding() {
-        dataSource.data.bind { (articles) in
-            self.savedView.savedTableView.reloadData()
+        dataSource.data.bind { [weak self] (articles) in
+            self?.savedView.savedTableView.reloadData()
         }
     }
 
@@ -88,10 +84,10 @@ extension SavedViewController: UITableViewDelegate {
     }
     
     private func deleteArticle(at indexPath: IndexPath) -> UIContextualAction {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Remove") { (action, view, handler) in
-            if let selectedArticle = self.savedViewModel.getSavedArticle(at: indexPath) {
-                self.savedViewModel.forgetArticle(for: selectedArticle)
-                self.savedViewModel.fetchArticles()
+        let deleteAction = UIContextualAction(style: .destructive, title: "Remove") { [weak self] (action, view, handler) in
+            if let selectedArticle = self?.savedViewModel.getSavedArticle(at: indexPath) {
+                self?.savedViewModel.forgetArticle(for: selectedArticle)
+                self?.savedViewModel.fetchArticles()
                 handler(true)
             }
             else {

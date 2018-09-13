@@ -18,12 +18,15 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         loginView = LoginView(frame: .zero)
         view.addSubview(loginView)
         loginView.autoPinEdgesToSuperviewEdges()
         setupDelegates()
         setupBinding()
         setupActions()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

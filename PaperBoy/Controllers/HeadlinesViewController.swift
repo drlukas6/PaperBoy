@@ -39,6 +39,8 @@ class HeadlinesViewController: UIViewController {
         setupBinding()
         setupActions()
         
+        startLoading()
+        
         headlinesViewModel.fetchArticles(prompt: activeCategory, searchType: .top)
     }
     
@@ -50,9 +52,18 @@ class HeadlinesViewController: UIViewController {
     }
     
     private func setupBinding() {
-        headlinesViewModel.dataSource?.data.bind(listener: { (articles) in
-            self.headlinesView.headlinesTableView.reloadData()
+        headlinesViewModel.dataSource?.data.bind(listener: { [weak self] (articles) in
+            self?.stopLoading()
+            self?.headlinesView.headlinesTableView.reloadData()
+            self?.resignFirstResponder()
         })
+        
+        headlinesViewModel.fetchErrorStatus.bind { [weak self] errorStatus in
+            if errorStatus {
+                self?.stopLoading()
+                self?.showToast(message: "Error Fetching Category", backgroundColor: .sunsetStart)
+            }
+        }
     }
     
     private func setupActions() {
@@ -65,15 +76,27 @@ class HeadlinesViewController: UIViewController {
         headlinesView.technology.addTarget(self, action: #selector(grabCategory(_:)), for: .touchUpInside)
     }
     
+    private func startLoading() {
+        headlinesView.loadingActivity.isHidden = false
+        headlinesView.loadingActivity.startAnimating()
+    }
+    
+    private func stopLoading() {
+        headlinesView.loadingActivity.isHidden = true
+        headlinesView.loadingActivity.stopAnimating()
+    }
+    
     @objc
     private func grabCategory(_ sender: UIButton) {
         activeCategory = sender.titleLabel?.text?.lowercased() ?? NewsApiPropertyKeys.categories.general
+        startLoading()
         headlinesViewModel.fetchArticles(prompt: activeCategory, searchType: .top)
     }
     
     @objc
     private func searchArticles() {
         guard let text = headlinesView.searchBar.text else { return }
+        startLoading()
         if text == "" {
             headlinesViewModel.fetchArticles(prompt: activeCategory, searchType: .top)
         }
@@ -115,8 +138,8 @@ extension HeadlinesViewController: UITableViewDelegate {
     
     
     private func saveArticle(at indexPath: IndexPath) -> UIContextualAction {
-        let saveAction = UIContextualAction(style: .normal, title: "Save") { (action, view, handler) in
-            if let selectedArticle = self.headlinesViewModel.dataSource?.data.value[indexPath.section] {
+        let saveAction = UIContextualAction(style: .normal, title: "Save") { [weak self] (action, view, handler) in
+            if let selectedArticle = self?.headlinesViewModel.dataSource?.data.value[indexPath.section] {
                 let articleToSave = SavedArticles(context: PersistenceService.context)
                 articleToSave.articleDescription = selectedArticle.description
                 articleToSave.author = selectedArticle.author
@@ -132,10 +155,10 @@ extension HeadlinesViewController: UITableViewDelegate {
                         else {
                             articleToSave.image = image?.pngData() as NSData?
                         }
-                        self.headlinesViewModel.saveArticle(for: articleToSave)
+                        self?.headlinesViewModel.saveArticle(for: articleToSave)
                     })
                 }
-                self.headlinesViewModel.updateArticlesSaved()
+                self?.headlinesViewModel.updateArticlesSaved()
                 handler(true)
             }
             else {
@@ -152,6 +175,12 @@ extension HeadlinesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(searchArticles), object: nil)
         self.perform(#selector(searchArticles), with: nil, afterDelay: 0.3)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(searchArticles), object: nil)
+        self.perform(#selector(searchArticles), with: nil, afterDelay: 0.3)
+        self.resignFirstResponder()
     }
 }
 

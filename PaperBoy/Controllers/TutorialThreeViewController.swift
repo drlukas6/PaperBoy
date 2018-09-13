@@ -22,6 +22,8 @@ class TutorialThreeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .sunsetEnd
+        
         tutorialView = TutorialThreeView(frame: .zero)
         view.addSubview(tutorialView)
         tutorialView.autoPinEdgesToSuperviewSafeArea()

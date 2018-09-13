@@ -76,13 +76,13 @@ class RegisterView: UIView {
         subtitleLabel.autoPinEdge(.top, to: .bottom, of: welcomeLabel, withOffset: ViewProperties.edgeInset)
         subtitleLabel.autoPinEdge(toSuperviewMargin: .leading)
         
-        usernameTextField.placeholder = "username"
+        usernameTextField.placeholder = "username (min. 8 chars)"
         usernameTextField.font = UIFont(name: (usernameTextField.font?.fontName)!, size: 18)
         usernameTextField.textContentType = .username
         usernameTextField.autocorrectionType = .no
         usernameTextField.autocapitalizationType = .none
         
-        passwordTextField.placeholder = "********"
+        passwordTextField.placeholder = "******** (min. 8 chars)"
         passwordTextField.font = UIFont(name: (passwordTextField.font?.fontName)!, size: 18)
         passwordTextField.textContentType = .password
         passwordTextField.isSecureTextEntry = true

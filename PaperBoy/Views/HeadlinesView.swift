@@ -23,6 +23,7 @@ class HeadlinesView: UIView {
     var science: UIButton!
     var sports: UIButton!
     var technology: UIButton!
+    var loadingActivity: UIActivityIndicatorView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,6 +52,7 @@ class HeadlinesView: UIView {
         science = UIButton(type: .system)
         sports = UIButton(type: .system)
         technology = UIButton(type: .system)
+        loadingActivity = UIActivityIndicatorView(style: .gray)
     }
     
     private func addSubviews() {
@@ -66,6 +68,7 @@ class HeadlinesView: UIView {
         categories.addArrangedSubview(sports)
         categories.addArrangedSubview(technology)
         self.addSubview(headlinesTableView)
+        self.addSubview(loadingActivity)
     }
     
     private func setupSubviews() {
@@ -163,5 +166,9 @@ class HeadlinesView: UIView {
         headlinesTableView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0), excludingEdge: .top)
         headlinesTableView.autoPinEdge(.top, to: .bottom, of: slider)
         headlinesTableView.separatorStyle = .none
+        
+        loadingActivity.autoCenterInSuperview()
+        loadingActivity.color = .neonPink
+        loadingActivity.isHidden = true
     }
 }

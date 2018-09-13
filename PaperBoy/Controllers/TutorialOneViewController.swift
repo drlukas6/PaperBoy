@@ -14,7 +14,7 @@ class TutorialOneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = .sunsetMiddle
         tutorialView = TutorialOneView(frame: .zero)
         view.addSubview(tutorialView)
         tutorialView.autoPinEdgesToSuperviewSafeArea()

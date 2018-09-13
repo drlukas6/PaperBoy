@@ -14,7 +14,7 @@ class TutorialTwoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = .sunsetStart
         tutorialView = TutorialTwoView(frame: .zero)
         view.addSubview(tutorialView)
         tutorialView.autoPinEdgesToSuperviewSafeArea()

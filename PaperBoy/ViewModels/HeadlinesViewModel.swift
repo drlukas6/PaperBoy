@@ -17,14 +17,15 @@ class HeadlinesViewModel {
     weak var dataSource: GenericDataSource<Article>?
     private var currentUser: Users
     private var userUpdaters: [UserUpdater]?
+    var fetchErrorStatus: ObserverBox<Bool>
     
     init(dataSource: GenericDataSource<Article>?, currentUser: Users, updaters: [UserUpdater]?) {
         self.dataSource = dataSource
         self.currentUser = currentUser
         self.userUpdaters = updaters
+        self.fetchErrorStatus = ObserverBox(observable: false)
     }
 }
-
 
 extension HeadlinesViewModel {
     enum searchType {
@@ -43,12 +44,14 @@ extension HeadlinesViewModel {
             parameters["category"] = prompt
             parameters["country"] = "us"
         }
-        TrapperKeeper().requestData(url: url, method: .GET, headers: NewsApiPropertyKeys.apiHeader, parameters: parameters) { (response, error) in
+        TrapperKeeper().requestData(url: url, method: .GET, headers: NewsApiPropertyKeys.apiHeader, parameters: parameters) { [unowned self] (response, error) in
             if error == nil, let articles = try? JSONDecoder().decode(Articles.self, from: response) {
                 self.dataSource?.data.value = articles.articles
+                self.fetchErrorStatus.value = false
             }
             else {
                 print("Failed headlines fetch")
+                self.fetchErrorStatus.value = true
             }
         }
     }

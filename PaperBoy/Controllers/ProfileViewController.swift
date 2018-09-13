@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController {
     @objc
     private func logout() {
         profileViewModel.logoutUser()
-        self.dismiss(animated: true)
+        self.present(LoginViewController(), animated: true, completion: nil)
     }
 }
 

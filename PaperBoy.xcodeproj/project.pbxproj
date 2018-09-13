@@ -14,6 +14,9 @@
 		2F24D604212E21640088C4AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F24D603212E21640088C4AC /* LoginViewController.swift */; };
 		2F3BEA642132AAFF0054500F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3BEA632132AAFF0054500F /* RegisterViewController.swift */; };
 		2F3BEA692132E7CC0054500F /* PropertyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3BEA682132E7CC0054500F /* PropertyKeys.swift */; };
+		2F5D6BA9214289960099EC6E /* TrapperKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5D6BA72142898F0099EC6E /* TrapperKeeper.framework */; };
+		2F5D6BAA214289960099EC6E /* TrapperKeeper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5D6BA72142898F0099EC6E /* TrapperKeeper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2F5D6BAC214299EC0099EC6E /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D6BAB214299EC0099EC6E /* UIApplication.swift */; };
 		2F73084E213197CA0021CC13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73084D213197CA0021CC13 /* User.swift */; };
 		2F73085021319CFA0021CC13 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73084F21319CFA0021CC13 /* RegisterView.swift */; };
 		2F7308532131A2FB0021CC13 /* ViewProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7308522131A2FB0021CC13 /* ViewProperties.swift */; };
@@ -31,8 +34,6 @@
 		2FA7A348212B11FB00A3FE2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FA7A347212B11FB00A3FE2E /* Assets.xcassets */; };
 		2FA7A34B212B11FB00A3FE2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA7A349212B11FB00A3FE2E /* LaunchScreen.storyboard */; };
 		2FA7A356212B11FB00A3FE2E /* PaperBoyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA7A355212B11FB00A3FE2E /* PaperBoyTests.swift */; };
-		2FC42034213D61CC005CEF75 /* TrapperKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC42032213D61C6005CEF75 /* TrapperKeeper.framework */; };
-		2FC42035213D61CC005CEF75 /* TrapperKeeper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC42032213D61C6005CEF75 /* TrapperKeeper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FC42038213E4AD1005CEF75 /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC42037213E4AD1005CEF75 /* SavedView.swift */; };
 		2FC4203A213E4C24005CEF75 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC42039213E4C24005CEF75 /* SavedViewController.swift */; };
 		2FC4203C213E4CF5005CEF75 /* SavedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4203B213E4CF5005CEF75 /* SavedViewModel.swift */; };
@@ -78,7 +79,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				2F8BC0D3212E2008007F7D1E /* Pods_PaperBoy.framework in Embed Frameworks */,
-				2FC42035213D61CC005CEF75 /* TrapperKeeper.framework in Embed Frameworks */,
+				2F5D6BAA214289960099EC6E /* TrapperKeeper.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +94,8 @@
 		2F24D603212E21640088C4AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2F3BEA632132AAFF0054500F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2F3BEA682132E7CC0054500F /* PropertyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKeys.swift; sourceTree = "<group>"; };
+		2F5D6BA72142898F0099EC6E /* TrapperKeeper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrapperKeeper.framework; sourceTree = "<group>"; };
+		2F5D6BAB214299EC0099EC6E /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		2F73084D213197CA0021CC13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2F73084F21319CFA0021CC13 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		2F7308522131A2FB0021CC13 /* ViewProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProperties.swift; sourceTree = "<group>"; };
@@ -112,7 +115,6 @@
 		2FA7A351212B11FB00A3FE2E /* PaperBoyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaperBoyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA7A355212B11FB00A3FE2E /* PaperBoyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperBoyTests.swift; sourceTree = "<group>"; };
 		2FA7A357212B11FB00A3FE2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2FC42032213D61C6005CEF75 /* TrapperKeeper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrapperKeeper.framework; sourceTree = "<group>"; };
 		2FC42037213E4AD1005CEF75 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 		2FC42039213E4C24005CEF75 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		2FC4203B213E4CF5005CEF75 /* SavedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewModel.swift; sourceTree = "<group>"; };
@@ -152,7 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FC42034213D61CC005CEF75 /* TrapperKeeper.framework in Frameworks */,
+				2F5D6BA9214289960099EC6E /* TrapperKeeper.framework in Frameworks */,
 				2F24D602212E20F50088C4AC /* PureLayout.framework in Frameworks */,
 				2F8BC0D2212E2008007F7D1E /* Pods_PaperBoy.framework in Frameworks */,
 			);
@@ -183,7 +185,7 @@
 		2F1081B0212E15F90025A5C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2FC42032213D61C6005CEF75 /* TrapperKeeper.framework */,
+				2F5D6BA72142898F0099EC6E /* TrapperKeeper.framework */,
 				2F24D601212E20F50088C4AC /* PureLayout.framework */,
 				A119A5444518F9AFE0F3EC78 /* Pods_PaperBoy.framework */,
 				D1DBC9282D40398BCC5AFA25 /* Pods_PaperBoyTests.framework */,
@@ -202,10 +204,17 @@
 			path = EntityClasses;
 			sourceTree = "<group>";
 		};
-		2F7308512131A2E60021CC13 /* Shared */ = {
+		2F5D6BAD2143C4000099EC6E /* Wrappers */ = {
 			isa = PBXGroup;
 			children = (
 				2FF1EB9E212EE2A300C88C64 /* ObserverBox.swift */,
+			);
+			path = Wrappers;
+			sourceTree = "<group>";
+		};
+		2F7308512131A2E60021CC13 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
 				2F7308522131A2FB0021CC13 /* ViewProperties.swift */,
 				2F3BEA682132E7CC0054500F /* PropertyKeys.swift */,
 				2FEA09102133F3C2005E384E /* GenericDataSource.swift */,
@@ -237,6 +246,7 @@
 		2FA7A33C212B11F900A3FE2E /* PaperBoy */ = {
 			isa = PBXGroup;
 			children = (
+				2F5D6BAD2143C4000099EC6E /* Wrappers */,
 				2F3BEA8421333FFE0054500F /* EntityClasses */,
 				2FF1EB9C212EE1DD00C88C64 /* RelatedFiles */,
 				2FF1EBA6212EF4C900C88C64 /* Services */,
@@ -339,6 +349,7 @@
 				2FF1EB9A212EE1A700C88C64 /* String.swift */,
 				2FE5786421372B7A00166973 /* UIView.swift */,
 				2FF252572141A42F008BF43B /* UIViewController.swift */,
+				2F5D6BAB214299EC0099EC6E /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -578,6 +589,7 @@
 				2FC42038213E4AD1005CEF75 /* SavedView.swift in Sources */,
 				2F73084E213197CA0021CC13 /* User.swift in Sources */,
 				2FF1EB99212ED31800C88C64 /* UIColor.swift in Sources */,
+				2F5D6BAC214299EC0099EC6E /* UIApplication.swift in Sources */,
 				2FF252622141C8A2008BF43B /* TutorialOneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
