@@ -117,6 +117,8 @@ extension HeadlinesViewController: UITableViewDelegate {
         if let url = url {
             headlinesViewModel.updateArticlesRead()
             let safariVC = SFSafariViewController(url: url)
+            safariVC.preferredBarTintColor = .black
+            safariVC.preferredControlTintColor = .neonPink
             self.present(safariVC, animated: true, completion: nil)
         }
     }
