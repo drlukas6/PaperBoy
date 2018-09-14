@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-struct ViewProperties {
+enum ViewProperties {
     static let cornerRadius: CGFloat = 15.0
     static let edgeInset: CGFloat = 8.0
     static let edgeMarginInset: CGFloat = 16.0
     static let threeQuarters: CGFloat = 0.75
     static let logo: String = "logo"
     
-    struct images {
+    enum images {
         static let save: String = "save"
         static let saved: String = "saved"
         static let profile: String = "profile"

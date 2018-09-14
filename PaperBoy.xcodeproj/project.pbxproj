@@ -258,7 +258,6 @@
 				2FA7A361212B124800A3FE2E /* Views */,
 				2FA7A360212B124600A3FE2E /* Models */,
 				2FA7A347212B11FB00A3FE2E /* Assets.xcassets */,
-				2FC42036213DCE60005CEF75 /* New Group */,
 				2FA7A34C212B11FB00A3FE2E /* Info.plist */,
 			);
 			path = PaperBoy;
@@ -324,13 +323,6 @@
 				2FA0EF822141DCA200E4DAF4 /* MainTutorialUViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		2FC42036213DCE60005CEF75 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		2FEA090F2133F356005E384E /* DataSources */ = {
