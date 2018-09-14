@@ -42,7 +42,12 @@ A Place For All Your Dailies. Fetch news from over 30.000 sources with just a ta
 
 ## Usage
 
-requestJSON(url: URL, method: HTTPMethod, headers: [String : String], parameters: [String : Any], closure: @escaping ([String : Any], Error?) -> Void)
-requestImage(url: URL, closure: @escaping (UIImage?) -> Void)
-requestData(url: URL, method: HTTPMethod, headers: [String : String], parameters: [String : Any], closure: @escaping (Data, Error?) -> Void)
+```swift
+import TrapperKeeper
 
+TrapperKeeper().requestJSON(url: URL, method: HTTPMethod, headers: [String : String], parameters: [String : Any], closure: @escaping ([String : Any], Error?) -> Void)
+
+TrapperKeeper().requestImage(url: URL, closure: @escaping (UIImage?) -> Void)
+
+TrapperKeeper().requestData(url: URL, method: HTTPMethod, headers: [String : String], parameters: [String : Any], closure: @escaping (Data, Error?) -> Void)
+```
